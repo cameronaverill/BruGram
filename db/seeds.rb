@@ -10,7 +10,7 @@ cameron = User.create! email: 'cra2126@columbia.edu', password: 'password', pass
 aobo = User.create! email: 'aobo.guo@yale.edu', password: 'password', password_confirmation: 'password'
 
 Photo.destroy_all
-horse = Photo.create! caption: 'Look at my horse', image: 'http://cache.desktopnexus.com/thumbseg/1127/1127787-bigthumbnail.jpg', user_id: aobo.id, public: true, likes: 0
+horse = Photo.create! caption: 'Look at my horse', image: 'http://cache.desktopnexus.com/thumbseg/1127/1127787-bigthumbnail.jpg', user_id: aobo.id, public: true
 dragon = Photo.create! caption: 'This animal is stunning', image: 'http://p1.pichost.me/i/63/1874779.jpg', user_id: cameron.id, public: false
 
 Comment.destroy_all
