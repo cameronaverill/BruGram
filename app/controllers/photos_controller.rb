@@ -19,7 +19,6 @@ class PhotosController < ApplicationController
 
 	def create
 		@photo = current_user.photos.build(photos_params)
-		@photo.likes = 0
 		if @photo.save
 			redirect_to photos_path
 		else
