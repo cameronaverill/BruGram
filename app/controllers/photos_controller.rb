@@ -65,7 +65,7 @@ class PhotosController < ApplicationController
 
 private
 	def photos_params
-		params.require(:photo).permit(:public, :caption, :image, :likes)
+		params.require(:photo).permit(:public, :caption, :image)
 	end
 
 	
