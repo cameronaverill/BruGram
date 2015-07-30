@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
 
 	private
 		def comment_params
-			params.require(:comment).permit(:body)
+			params.require(:comment).permit(:body, :likes)
 		end
 
 		def verify_user
