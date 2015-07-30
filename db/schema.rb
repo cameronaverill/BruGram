@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729193319) do
+ActiveRecord::Schema.define(version: 20150730190034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_likes_to_comments", force: :cascade do |t|
+    t.integer  "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "add_likes_to_photos", force: :cascade do |t|
+    t.integer  "likes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -22,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150729193319) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "likes"
   end
 
   add_index "comments", ["photo_id"], name: "index_comments_on_photo_id", using: :btree
@@ -34,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150729193319) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "likes"
   end
 
   add_index "photos", ["user_id"], name: "index_photos_on_user_id", using: :btree
