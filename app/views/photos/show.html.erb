@@ -1,6 +1,18 @@
 <p>
 <%= @photo.user.email %> </br>
-<%= image_tag @photo.image %> </br> <hr>
+<%= image_tag @photo.image %> </br> 
+
+<%if (current_user.liked? @photo) %>
+<%=link_to unlike_photo_path(@photo), method: :put, class: "btn btn-primary btn-sm" do %>
+		Liked <%=@photo.likes%>
+  <%end %>
+<%else %>
+  <%=link_to like_photo_path(@photo), method: :put, class: "btn btn-default btn-sm" do %>
+  	  Like <%=@photo.likes%>
+  <%end %> 
+ <%end%>
+<hr>
+
 
 <strong> Comments </strong> </br>
 <%= render @photo.comments %> </br>

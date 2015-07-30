@@ -8,6 +8,13 @@ Rails.application.routes.draw do
   end
 
 
+  resources :photos do
+    member do
+      put "like", to: "photos#like"
+      put "unlike", to: "photos#unlike"
+    end
+  end
+
   
 
 

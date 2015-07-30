@@ -45,9 +45,26 @@ class PhotosController < ApplicationController
 		redirect_to photos_path
 	end
 
+	def like
+    	@photo = Photo.find(params[:id])
+    	@photo.liked_by current_user
+    	@photo.likes += 1
+    	@photo.save
+    	redirect_to @photo
+	end
+
+	def unlike
+  		@photo = Photo.find(params[:id])
+  		@photo.downvote_from current_user
+  		@photo.likes -= 1
+  		@photo.save
+	    redirect_to @photo
+	end
+
+
 private
 	def photos_params
-		params.require(:photo).permit(:public, :caption, :image)
+		params.require(:photo).permit(:public, :caption, :image, :likes)
 	end
 
 	
