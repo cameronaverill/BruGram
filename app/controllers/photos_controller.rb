@@ -3,7 +3,7 @@ class PhotosController < ApplicationController
 	
 
 	def index
-		@photos = Photo.all
+		@photos = Photo.all.order(created_at: :desc)
 	end
 
 	def show
@@ -50,7 +50,7 @@ class PhotosController < ApplicationController
     	@photo.liked_by current_user
     	@photo.likes += 1
     	@photo.save
-    	redirect_to @photo
+    	redirect_to :back
 	end
 
 	def unlike
@@ -58,7 +58,7 @@ class PhotosController < ApplicationController
   		@photo.downvote_from current_user
   		@photo.likes -= 1
   		@photo.save
-	    redirect_to @photo
+	    redirect_to :back
 	end
 
 

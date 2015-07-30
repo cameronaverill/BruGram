@@ -12,6 +12,15 @@
      <%end%>
      </br>
 	 <%= photo.caption %> </br>
+	 <%if (current_user.liked? photo) %>
+	 <%=link_to unlike_photo_path(photo), method: :put, class: "btn btn-primary btn-sm" do %>
+	 		Liked <%=photo.likes%>
+	   <%end %>
+	 <%else %>
+	   <%=link_to like_photo_path(photo), method: :put, class: "btn btn-default btn-sm" do %>
+	   	  Like <%=photo.likes%>
+	   <%end %> 
+	  <%end%>
 	 <% if current_user == photo.user %>
 	 <%= link_to 'Edit Photo', edit_photo_path(photo) %>  <%= link_to 'Destroy',  photo,  method: :delete, data: { confirm: 'Are you sure?' } %> <%end%></p>
 </div>

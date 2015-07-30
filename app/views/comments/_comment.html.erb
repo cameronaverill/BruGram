@@ -2,5 +2,14 @@
 	<strong> <%= comment.user.email%>: </strong> <%=comment.body%> |
 
 	<% if comment.user == current_user %>
+		<%if (current_user.liked? comment) %>
+		<%=link_to unlike_comment_path(comment), method: :put, class: "btn btn-primary btn-sm" do %>
+				Liked <%=comment.likes%>
+		  <%end %>
+		<%else %>
+		  <%=link_to like_comment_path(comment), method: :put, class: "btn btn-default btn-sm" do %>
+		  	  Like <%=comment.likes%>
+		  <%end %> 
+		 <%end%>
 	 		<%= link_to 'Edit', edit_photo_comment_path(@photo, comment) %> | <%=link_to 'Delete', photo_comment_path(@photo, comment), method: :delete, data: { confirm: 'Are you sure?' } %> </br>
 	<%end%>

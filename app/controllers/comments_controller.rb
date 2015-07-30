@@ -32,6 +32,22 @@ class CommentsController < ApplicationController
 		redirect_to photos_path
 	end
 
+	def like
+    	@comment = Comment.find(params[:id])
+    	@comment.liked_by current_user
+    	@comment.likes += 1
+    	@comment.save
+    	redirect_to :back
+	end
+
+	def unlike
+  		@comment = Comment.find(params[:id])
+  		@comment.downvote_from current_user
+  		@comment.likes -= 1
+  		@comment.save
+	    redirect_to :back
+	end
+
 	private
 		def comment_params
 			params.require(:comment).permit(:body)
