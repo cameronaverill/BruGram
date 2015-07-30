@@ -1,0 +1,18 @@
+<h1> Brugram </h1>
+
+<%= link_to 'New Photo', new_photo_path%>
+
+<% @photos.each do |photo| %>
+<div>
+	<p> <h4 style = "margin: 0"> <%= photo.user.email %> </h4> 
+	 <% if photo.public || current_user == photo.user %>
+	 <%= link_to "#{image_tag(photo.image)}".html_safe, photo_path(photo), class: "max-width" %> 
+	 <% else %>
+     <%= image_tag photo.image, class: "max-width"%> 
+     <%end%>
+     </br>
+	 <%= photo.caption %> </br>
+	 <% if current_user == photo.user %>
+	 <%= link_to 'Edit Photo', edit_photo_path(photo) %>  <%= link_to 'Destroy',  photo,  method: :delete, data: { confirm: 'Are you sure?' } %> <%end%></p>
+</div>
+<% end %>

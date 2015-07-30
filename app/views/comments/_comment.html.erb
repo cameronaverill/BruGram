@@ -1,0 +1,6 @@
+
+	<strong> <%= comment.user.email%>: </strong> <%=comment.body%> |
+
+	<% if comment.user == current_user %>
+	 		<%= link_to 'Edit', edit_photo_comment_path(@photo, comment) %> | <%=link_to 'Delete', photo_comment_path(@photo, comment), method: :delete, data: { confirm: 'Are you sure?' } %> </br>
+	<%end%>

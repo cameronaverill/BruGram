@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
+  devise_for :users do 
+    resources :photos
+  end
+
+  resources :photos do 
+    resources :comments
+  end
+
+
+  
+
+
+   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  root 'photos#index'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

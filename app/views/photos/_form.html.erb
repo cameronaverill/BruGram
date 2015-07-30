@@ -1,0 +1,7 @@
+<%= form_for @photo do |f| %>
+	<p> <%= f.label :image %>
+	<%= f.text_field :image %> </p>
+	<p> <%= f.label :caption %>
+	<%= f.text_area :caption %> </p>
+	<%= f.submit :submit %>
+<%end%> 

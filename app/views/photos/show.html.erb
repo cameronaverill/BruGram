@@ -1,0 +1,11 @@
+<p>
+<%= @photo.user.email %> </br>
+<%= image_tag @photo.image %> </br> <hr>
+
+<strong> Comments </strong> </br>
+<%= render @photo.comments %> </br>
+<hr>
+<h4> Add a new comment: </h4> <%= render 'comments/form' %>
+</p>
+
+<%= link_to 'Back', photos_path %>
