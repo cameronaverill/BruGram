@@ -1,5 +1,5 @@
 <%= form_for([@photo, @photo.comments.build]) do |f| %>
 	<strong> <%= current_user.email %> </strong>: 
-	<%= f.text_field :body %>
-	 <%= f.submit :submit %>
+	<%= f.text_field :body, class: "input" %>
+	 <%= f.submit :submit, class: "input" %>
 <% end %>

@@ -1,5 +1,5 @@
 
-	<strong> <%= comment.user.email%>: </strong> <%=comment.body%> |
+	<strong> <%= comment.user.email%>: </strong> <%=comment.body%>
 
 	<% if comment.user == current_user %>
 		<%if (current_user.liked? comment) %>

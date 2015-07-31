@@ -1,6 +1,7 @@
+<div class="col-md-10">
 <p>
-<%= @photo.user.email %> </br>
-<%= image_tag @photo.image %> </br> 
+<h5> <%= @photo.user.email %> </h5> <hr>
+<%= image_tag @photo.image %> </br> </br>
 
 <%if (current_user.liked? @photo) %>
 <%=link_to unlike_photo_path(@photo), method: :put, class: "btn btn-primary btn-sm" do %>
@@ -10,14 +11,15 @@
   <%=link_to like_photo_path(@photo), method: :put, class: "btn btn-default btn-sm" do %>
   	  Like <%=@photo.likes%>
   <%end %> 
- <%end%>
+ <%end%> </br> </br>
 <hr>
 
 
-<strong> Comments </strong> </br>
+<h4> Comments </h4>
 <%= render @photo.comments %> </br>
 <hr>
 <h4> Add a new comment: </h4> <%= render 'comments/form' %>
 </p>
 
 <%= link_to 'Back', photos_path %>
+</div>

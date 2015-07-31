@@ -10,11 +10,36 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require_tree 
+ *= require grayscale
+ *= require font-awesome
+ *= require 3-col-portfolio
  *= require_self
  */
 
 
 img{
 	max-width: 300px;
+}
+
+.btn-outline{
+	border: 10px solid rgba(250,250,250, 0.7);
+	border-radius: 20px;
+}
+
+.log-in{
+	text-align: center;
+	margin: 170px auto;
+}
+
+.log-in h2{
+	font-size: 64px;
+}
+
+.input{
+	color: black;
+}
+
+.field{
+	margin: 15px 0px;
 }
