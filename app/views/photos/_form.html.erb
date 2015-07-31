@@ -4,5 +4,7 @@
 	<%= f.text_field :image, class: "input" %> </p>
 	<p> <%= f.label :caption %>
 	<%= f.text_area :caption, class: "input" %> </p>
+	<p> <%= f.label :public %>
+		<%= f.check_box :public %> </p>
 	<%= f.submit :submit, class: "input" %>
 <%end%> 
